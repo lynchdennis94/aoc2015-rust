@@ -1,4 +1,4 @@
-pub fn determine_floor(input: String) -> i32 {
+pub fn solve_1a(input: String) -> i32 {
     let mut floor_counter: i32 = 0;
     for floor_char in input.chars() {
         floor_counter += translate_char_to_position(floor_char);
@@ -6,7 +6,7 @@ pub fn determine_floor(input: String) -> i32 {
     return floor_counter;
 }
 
-pub fn determine_negative_one_position(input: String) -> i32 {
+pub fn solve_1b(input: String) -> i32 {
     let mut floor_counter: i32 = 0;
     let mut current_position_counter = 0;
     for floor_char in input.chars() {
