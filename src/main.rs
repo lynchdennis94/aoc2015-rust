@@ -51,8 +51,8 @@ fn main() {
             println!("Problem 3a: {problem_3a_output}");
             println!("Problem 3b: {problem_3b_output}");
         }
-        _ => {
-            println!("Problem not implemented");
+        other => {
+            println!("Problem {other} not implemented");
         }
     }
 }
