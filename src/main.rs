@@ -12,6 +12,9 @@ pub use problem_two::*;
 mod problem_three;
 pub use problem_three::*;
 
+mod problem_four;
+pub use problem_four::*;
+
 fn main() {
     let args: Vec<String> = env::args().collect();
     if args.len() < 2 {
@@ -50,6 +53,16 @@ fn main() {
             let problem_3b_output = problem_three::solve_3b(problem_3_input.clone());
             println!("Problem 3a: {problem_3a_output}");
             println!("Problem 3b: {problem_3b_output}");
+        }
+        4 => {
+            // Problem 4
+            let problem_4_input =
+                problem_reader::read_file("./src/problem_inputs/problem_4_input.txt");
+            //let problem_4_input: String = "pqrstuv".into();
+            let problem_4a_output = problem_four::solve_4a(problem_4_input.clone());
+            let problem_4b_output = problem_four::solve_4b(problem_4_input.clone());
+            println!("Problem 4a: {problem_4a_output}");
+            println!("Problem 4b: {problem_4b_output}");
         }
         other => {
             println!("Problem {other} not implemented");
