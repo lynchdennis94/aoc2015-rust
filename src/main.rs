@@ -27,45 +27,26 @@ fn main() {
         .unwrap();
 
     match arg_index {
-        1 => {
-            // Problem 1
-            let problem_1_input =
-                problem_reader::read_file("./src/problem_inputs/problem_1_input.txt");
-            let problem_1a_output = problem_one::solve_1a(problem_1_input.clone());
-            let problem_1b_output = problem_one::solve_1b(problem_1_input.clone());
-            println!("Problem 1a: {problem_1a_output}");
-            println!("Problem 1b: {problem_1b_output}");
-        }
-        2 => {
-            // Problem 2
-            let problem_2_input =
-                problem_reader::read_file("./src/problem_inputs/problem_2_input.txt");
-            let problem_2a_output = problem_two::solve_2a(problem_2_input.clone());
-            let problem_2b_output = problem_two::solve_2b(problem_2_input.clone());
-            println!("Problem 2a: {problem_2a_output}");
-            println!("Problem 2b: {problem_2b_output}");
-        }
-        3 => {
-            // Problem 3
-            let problem_3_input =
-                problem_reader::read_file("./src/problem_inputs/problem_3_input.txt");
-            let problem_3a_output = problem_three::solve_3a(problem_3_input.clone());
-            let problem_3b_output = problem_three::solve_3b(problem_3_input.clone());
-            println!("Problem 3a: {problem_3a_output}");
-            println!("Problem 3b: {problem_3b_output}");
-        }
-        4 => {
-            // Problem 4
-            let problem_4_input =
-                problem_reader::read_file("./src/problem_inputs/problem_4_input.txt");
-            //let problem_4_input: String = "pqrstuv".into();
-            let problem_4a_output = problem_four::solve_4a(problem_4_input.clone());
-            let problem_4b_output = problem_four::solve_4b(problem_4_input.clone());
-            println!("Problem 4a: {problem_4a_output}");
-            println!("Problem 4b: {problem_4b_output}");
-        }
+        1 => solve_problem(arg_index, problem_one::solve_1a, problem_one::solve_1b),
+        2 => solve_problem(arg_index, problem_two::solve_2a, problem_two::solve_2b),
+        3 => solve_problem(arg_index, problem_three::solve_3a, problem_three::solve_3b),
+        4 => solve_problem(arg_index, problem_four::solve_4a, problem_four::solve_4b),
         other => {
             println!("Problem {other} not implemented");
         }
     }
+}
+
+fn solve_problem(
+    problem_index: i32,
+    part_a_solver: fn(String) -> String,
+    part_b_solver: fn(String) -> String,
+) {
+    let filepath = format!("./src/problem_inputs/problem_{problem_index}_input.txt");
+    let problem_input = problem_reader::read_file(filepath.as_str());
+    //let problem_4_input: String = "pqrstuv".into();
+    let part_a_output = part_a_solver(problem_input.clone());
+    let part_b_output = part_b_solver(problem_input.clone());
+    println!("Part A Output: {part_a_output}");
+    println!("Part B Output: {part_b_output}");
 }

@@ -1,19 +1,19 @@
-pub fn solve_2a(input: String) -> i32 {
+pub fn solve_2a(input: String) -> String {
     let mut total_surface_area = 0;
     let packages = input.split("\n");
     for package in packages {
         total_surface_area += get_wrapping_for_single_package(package);
     }
-    return total_surface_area;
+    return total_surface_area.to_string();
 }
 
-pub fn solve_2b(input: String) -> i32 {
+pub fn solve_2b(input: String) -> String {
     let mut total_ribbon_length = 0;
     let packages = input.split("\n");
     for package in packages {
         total_ribbon_length += get_ribbons_for_single_package(package);
     }
-    return total_ribbon_length;
+    return total_ribbon_length.to_string();
 }
 
 fn get_package_dimensions(package: &str) -> Vec<i32> {

@@ -1,10 +1,10 @@
 use std::collections::HashSet;
 
-pub fn solve_3a(input: String) -> usize {
-    return get_unique_trip_set(input).len();
+pub fn solve_3a(input: String) -> String {
+    return get_unique_trip_set(input).len().to_string();
 }
 
-pub fn solve_3b(input: String) -> usize {
+pub fn solve_3b(input: String) -> String {
     let mut santa_instructions: String = String::new();
     let mut robo_santa_instructions: String = String::new();
 
@@ -23,7 +23,10 @@ pub fn solve_3b(input: String) -> usize {
     let robo_santa_trip_set = get_unique_trip_set(robo_santa_instructions);
 
     // Combine the sets (in case they both visit the same house) and return the solution
-    return real_santa_trip_set.union(&robo_santa_trip_set).count();
+    return real_santa_trip_set
+        .union(&robo_santa_trip_set)
+        .count()
+        .to_string();
 }
 
 /**

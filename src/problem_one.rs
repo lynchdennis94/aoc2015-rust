@@ -1,12 +1,12 @@
-pub fn solve_1a(input: String) -> i32 {
+pub fn solve_1a(input: String) -> String {
     let mut floor_counter: i32 = 0;
     for floor_char in input.chars() {
         floor_counter += translate_char_to_position(floor_char);
     }
-    return floor_counter;
+    return floor_counter.to_string();
 }
 
-pub fn solve_1b(input: String) -> i32 {
+pub fn solve_1b(input: String) -> String {
     let mut floor_counter: i32 = 0;
     let mut current_position_counter = 0;
     for floor_char in input.chars() {
@@ -17,7 +17,7 @@ pub fn solve_1b(input: String) -> i32 {
         }
     }
 
-    return current_position_counter;
+    return current_position_counter.to_string();
 }
 
 fn translate_char_to_position(input_char: char) -> i32 {
